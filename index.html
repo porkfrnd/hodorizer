@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hodor Translator – Now with Real Voice! 🚪</title>
+  <title>HODOR TRANSLATOR – REAL VOICE EDITION 🚪</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Creepster&family=UnifrakturCook:wght@700&display=swap');
 
@@ -21,112 +21,103 @@
     h1 {
       font-family: 'Creepster', cursive;
       color: #c71585;
-      text-shadow: 0 0 15px #ff1493, 0 0 30px #8b008b;
+      text-shadow: 0 0 20px #ff1493;
       margin: 20px 0 10px;
-      font-size: 2.8rem;
+      font-size: 3rem;
     }
     .container {
-      background: rgba(30, 30, 60, 0.9);
-      border: 4px solid #6a5acd;
+      background: rgba(30, 30, 60, 0.95);
+      border: 5px solid #6a5acd;
       border-radius: 16px;
       padding: 30px;
       width: 100%;
-      max-width: 720px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      max-width: 740px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
     }
     textarea, #output {
       width: 100%;
-      min-height: 130px;
-      padding: 14px;
+      min-height: 140px;
+      padding: 16px;
       margin: 12px 0;
       border: 3px solid #6a5acd;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 18px;
       resize: vertical;
       background: #0f0f23;
       color: #f0f0ff;
       font-family: monospace;
-      transition: all 0.3s;
     }
     #output {
       background: #1e1e3f;
-      min-height: 160px;
+      min-height: 170px;
       white-space: pre-wrap;
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.35rem;
+      line-height: 1.7;
+      cursor: pointer;
     }
     button {
       background: #c71585;
       color: white;
       border: none;
-      padding: 14px 24px;
+      padding: 14px 28px;
       font-size: 17px;
       border-radius: 10px;
       cursor: pointer;
       margin: 8px 6px;
       transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
     }
-    button:hover {
-      background: #ff1493;
-      transform: scale(1.08) rotate(2deg);
-      box-shadow: 0 0 20px #ff69b4;
-    }
-    .speak-btn {
-      background: #4b0082;
-    }
-    .speak-btn:hover {
-      background: #8a2be2;
-    }
-    .alive {
-      animation: hodorShake 0.4s infinite alternate;
-    }
+    button:hover { background: #ff1493; transform: scale(1.08); }
+    .speak-btn { background: #4b0082; }
+    .speak-btn:hover { background: #8a2be2; }
+    .alive { animation: hodorShake 0.35s infinite alternate; }
     @keyframes hodorShake {
-      from { transform: translateX(-3px) rotate(-2deg); }
-      to { transform: translateX(3px) rotate(2deg); }
+      from { transform: translateX(-4px) rotate(-3deg); }
+      to { transform: translateX(4px) rotate(3deg); }
     }
     .info {
       font-size: 0.95em;
       color: #aaa;
-      margin-top: 25px;
+      margin-top: 20px;
       text-align: center;
       font-style: italic;
     }
-    .voice-status {
-      font-size: 0.85em;
-      color: #6a5acd;
-      margin-top: 8px;
-    }
+    .highlight { color: #ff1493; font-size: 1.5rem; text-shadow: 0 0 10px #ff69b4; }
   </style>
 </head>
 <body>
   <h1>HODOR TRANSLATOR</h1>
   <div class="container">
-    <p><strong>English side →</strong> Type anything (any language):</p>
-    <textarea id="input" placeholder="Hello from Kathmandu! What should Hodor say today?"></textarea>
-    
+    <p><strong>English side →</strong> Type anything (auto-translates live):</p>
+    <textarea id="input" placeholder="Hello from Kathmandu... What does Hodor say?"></textarea>
+
     <div style="text-align:center; margin:15px 0;">
-      <button onclick="speakEnglish()">🔊 Speak English</button>
-      <button onclick="hodorize()">HODORIZE! 🚪</button>
+      <button onclick="speakEnglish()">🔊 Speak English (AI)</button>
+      <button onclick="hodorize()">Force Hodorize</button>
     </div>
 
-    <p><strong>Hodor side →</strong> The only language that matters:</p>
+    <p><strong>Hodor side →</strong> REAL voice from the show (click to hear):</p>
     <div id="output">Hodor...</div>
 
     <div style="text-align:center; margin-top:15px;">
-      <button class="speak-btn" onclick="speakHodor()">🗣️ Hodor Speak! (feels alive)</button>
+      <button class="speak-btn" onclick="speakHodor()">🗣️ HODOR SPEAK! (real clips)</button>
     </div>
 
     <div class="info">
-      Hold the door.<br>
-      Works best in Chrome / Edge • Uses your browser's free built-in voice (no sign-up, no limits)
+      Real Kristian Nairn voice clips • Auto-updates like Google Translate<br>
+      Hold the door. Hodor holds the door. Hodor.
     </div>
   </div>
 
   <script>
-    // === DETERMINISTIC HODOR TRANSLATION (same text = same output) ===
+    // === REAL HODOR VOICE CLIPS (direct from public soundboards) ===
+    const hodorClips = [
+      "https://www.myinstants.com/media/sounds/hodor.mp3",           // classic Hodor
+      "https://www.myinstants.com/media/sounds/hodor_1.mp3",         // simple Hodor
+      "https://www.myinstants.com/media/sounds/hodor-abertura-tok.mp3", // long/excited
+      "https://www.myinstants.com/media/sounds/untitled_240.mp3"     // dramatic Game of Hodor
+    ];
+
+    // === DETERMINISTIC TRANSLATION ===
     function simpleHash(str) {
       let hash = 0;
       for (let i = 0; i < str.length; i++) {
@@ -155,7 +146,6 @@
         let base = len <= 3 ? "Hod" : len <= 6 ? "Hodor" : len <= 10 ? "Hodooor" : "Hoooooodor";
         let variant = bases[hash % bases.length] || base;
 
-        // deterministic punctuation & casing
         if ((hash % 7) < 3) variant += puncts[hash % puncts.length];
         if ((hash % 3) === 0) variant = variant.toUpperCase();
         else if ((hash % 3) === 1) variant = variant.toLowerCase();
@@ -164,85 +154,72 @@
       }).join(" ");
 
       const outputEl = document.getElementById('output');
-      outputEl.textContent = result;
-      outputEl.classList.add('alive'); // shake animation
-      setTimeout(() => outputEl.classList.remove('alive'), 1200);
+      outputEl.textContent = result || "Hodor...";
+      outputEl.classList.add('alive');
+      setTimeout(() => outputEl.classList.remove('alive'), 900);
     }
 
-    // === FREE TTS: Web Speech API (100% free, no key, built into browser) ===
-    let voices = [];
-    function loadVoices() {
-      voices = speechSynthesis.getVoices();
-    }
-    speechSynthesis.onvoiceschanged = loadVoices;
-    loadVoices(); // initial load
+    // === AUTO TRANSLATE (Google Translate style) ===
+    let debounceTimer;
+    const inputEl = document.getElementById('input');
+    inputEl.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(hodorize, 420);
+    });
 
+    // === REAL HODOR SPEAK (plays actual clips sequentially) ===
+    async function speakHodor() {
+      const text = document.getElementById('output').textContent.trim();
+      if (!text || text === "Hodor...") return;
+
+      const hodorWords = text.split(/\s+/);
+      const outputEl = document.getElementById('output');
+      let originalHTML = outputEl.innerHTML;
+
+      for (let i = 0; i < hodorWords.length; i++) {
+        const word = hodorWords[i];
+        if (!word) continue;
+
+        // Pick real clip using deterministic hash (same text = same voice every time)
+        const hash = simpleHash(word + i);
+        const clipUrl = hodorClips[hash % hodorClips.length];
+
+        const audio = new Audio(clipUrl);
+        audio.playbackRate = 0.92 + (hash % 25) / 80; // tiny natural variation
+
+        // Highlight current word
+        outputEl.innerHTML = hodorWords.map((w, idx) =>
+          idx === i ? `<span class="highlight">${w}</span>` : w
+        ).join(" ");
+
+        audio.play();
+
+        // Wait until this clip almost finishes before next
+        await new Promise(resolve => {
+          audio.onended = resolve;
+          setTimeout(resolve, 1200); // safety timeout
+        });
+      }
+
+      // Reset
+      outputEl.innerHTML = originalHTML;
+    }
+
+    // English AI voice (unchanged, only for input)
     function speakEnglish() {
       const text = document.getElementById('input').value.trim();
       if (!text) return;
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.rate = 0.95;
-      utterance.pitch = 1;
-      utterance.volume = 1;
+      utterance.pitch = 1.05;
       speechSynthesis.speak(utterance);
     }
 
-    function speakHodor() {
-      const text = document.getElementById('output').textContent.trim();
-      if (!text || text === "Hodor...") return;
-
-      const hodorWords = text.split(/\s+/);
-      let delay = 0;
-
-      hodorWords.forEach((word, i) => {
-        if (!word) return;
-
-        setTimeout(() => {
-          const utterance = new SpeechSynthesisUtterance(word);
-          
-          // Make it FEEL ALIVE like real Hodor
-          const hash = simpleHash(word + i); // unique per word
-          utterance.pitch = 0.65 + (hash % 60) / 120;     // deep voice (0.65–1.1)
-          utterance.rate = 0.65 + (hash % 45) / 90;       // slower & varied (0.65–1.1)
-          utterance.volume = 0.9 + (hash % 20) / 100;
-          
-          // Try to pick a deep male voice if available
-          const deepVoice = voices.find(v => 
-            (v.name.includes("Daniel") || v.name.includes("David") || 
-             v.name.toLowerCase().includes("male") || v.name.includes("UK")) && 
-            v.lang.startsWith("en")
-          );
-          if (deepVoice) utterance.voice = deepVoice;
-
-          // Highlight word while speaking
-          const outputEl = document.getElementById('output');
-          outputEl.style.transition = 'all 0.2s';
-          outputEl.textContent = text.split(/\s+/).map((w, idx) => 
-            idx === i ? `<span style="color:#ff1493; font-size:1.4rem;">${w}</span>` : w
-          ).join(" ");
-
-          speechSynthesis.speak(utterance);
-
-          // Reset highlight after this word
-          utterance.onend = () => {
-            outputEl.innerHTML = text;
-          };
-        }, delay);
-
-        delay += 380 + (Math.random() * 220); // natural pauses
-      });
-    }
-
-    // Auto Hodorize on Enter
-    document.getElementById('input').addEventListener('keypress', e => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        hodorize();
-      }
-    });
-
-    // Bonus: Click on output to speak Hodor instantly
+    // Click output to speak Hodor
     document.getElementById('output').addEventListener('click', speakHodor);
+
+    // Initial auto-translate if there's placeholder text
+    setTimeout(hodorize, 600);
   </script>
 </body>
-         </html>
+</html>
